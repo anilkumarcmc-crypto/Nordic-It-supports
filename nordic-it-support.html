@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordic IT Support – Reliable & Affordable IT Services in Denmark</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --blue: #1a3a6e;
+    --accent: #2e7fff;
+    --ice: #e8f0ff;
+    --white: #ffffff;
+    --gray: #8a9ab5;
+    --light: #f4f7ff;
+    --border: rgba(46,127,255,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(46,127,255,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 80%, rgba(26,58,110,0.4) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grid lines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(46,127,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,127,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.75);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .nav-cta {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.55rem 1.3rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: #1a6fff; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2.5rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-content { max-width: 680px; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(46,127,255,0.12);
+    border: 1px solid rgba(46,127,255,0.3);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
+    color: #7eb8ff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #2e7fff;
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.4rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  h1 span {
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #a8bbd6;
+    max-width: 520px;
+    margin-bottom: 2.4rem;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(46,127,255,0.35);
+  }
+  .btn-primary:hover {
+    background: #1a6fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(46,127,255,0.5);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    background: rgba(46,127,255,0.08);
+  }
+
+  /* Floating card */
+  .hero-card {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 300px;
+    backdrop-filter: blur(10px);
+    animation: fadeUp 0.9s 0.4s ease both;
+    display: none;
+  }
+
+  @media (min-width: 1000px) { .hero-card { display: block; } }
+
+  .card-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-stat:last-child { border-bottom: none; }
+
+  .stat-icon {
+    width: 40px; height: 40px;
+    background: rgba(46,127,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .stat-label { font-size: 0.78rem; color: var(--gray); }
+  .stat-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: #8a9ab5;
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.65;
+  }
+
+  /* ─── SERVICES ─── */
+  #services {
+    padding: 6rem 0;
+    background: rgba(10,22,40,0.4);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.7rem;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    cursor: default;
+  }
+  .service-card:hover {
+    background: rgba(46,127,255,0.07);
+    border-color: rgba(46,127,255,0.4);
+    transform: translateY(-3px);
+  }
+
+  .service-emoji {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ─── WHY ─── */
+  #why {
+    padding: 6rem 0;
+  }
+
+  .why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 760px) {
+    .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  .why-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+
+  .why-item {
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+  }
+
+  .why-check {
+    width: 28px; height: 28px;
+    background: rgba(46,127,255,0.15);
+    border: 1px solid rgba(46,127,255,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .why-text strong { display: block; font-weight: 500; margin-bottom: 0.2rem; }
+  .why-text span { font-size: 0.88rem; color: var(--gray); }
+
+  .why-visual {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .big-stat {
+    font-family: 'Syne', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .big-stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    padding: 6rem 0;
+    background: rgba(10,22,40,0.4);
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 760px) {
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  .contact-methods { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-item:hover {
+    background: rgba(46,127,255,0.08);
+    border-color: rgba(46,127,255,0.4);
+  }
+
+  .contact-icon {
+    width: 42px; height: 42px;
+    background: rgba(46,127,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label { font-size: 0.78rem; color: var(--gray); }
+  .contact-val { font-weight: 500; font-size: 0.98rem; }
+
+  /* Contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+  .form-group label { font-size: 0.82rem; color: var(--gray); font-weight: 400; }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem 1.1rem;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-group select option { background: var(--navy); }
+
+  .btn-submit {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(46,127,255,0.35);
+    align-self: flex-start;
+  }
+  .btn-submit:hover { background: #1a6fff; transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.05s; }
+  .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.12s; }
+  .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.19s; }
+  .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.26s; }
+  .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.33s; }
+  .reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:0.40s; }
+  .reveal-stagger.visible > *:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.47s; }
+  .reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:translateY(0); transition-delay:0.54s; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">💻</div>
+    Nordic IT Support
+  </div>
+  <a href="#contact" class="nav-cta">Get Help →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="badge">📍 Based in Denmark</div>
+    <h1>Your <span>IT Problems</span>,<br>Solved Fast.</h1>
+    <p class="hero-desc">Affordable IT support for homes and small businesses in Denmark. Fast, reliable and friendly service — so you can focus on your work.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">📞 Get in Touch</a>
+      <a href="#services" class="btn-secondary">See Services</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="card-stat">
+      <div class="stat-icon">⚡</div>
+      <div>
+        <div class="stat-label">Response Time</div>
+        <div class="stat-val">Fast & Reliable</div>
+      </div>
+    </div>
+    <div class="card-stat">
+      <div class="stat-icon">💰</div>
+      <div>
+        <div class="stat-label">Pricing</div>
+        <div class="stat-val">Affordable Rates</div>
+      </div>
+    </div>
+    <div class="card-stat">
+      <div class="stat-icon">🇩🇰</div>
+      <div>
+        <div class="stat-label">Service Area</div>
+        <div class="stat-val">All of Denmark</div>
+      </div>
+    </div>
+    <div class="card-stat">
+      <div class="stat-icon">🌐</div>
+      <div>
+        <div class="stat-label">Remote Support</div>
+        <div class="stat-val">Available</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="section-label">What I do</div>
+      <h2 class="section-title">Services I Offer</h2>
+      <p class="section-sub">From fixing your printer to setting up your entire office network — I handle it all.</p>
+    </div>
+
+    <div class="services-grid reveal-stagger">
+      <div class="service-card">
+        <span class="service-emoji">🖥️</span>
+        <div class="service-name">Computer & Laptop Repair</div>
+        <div class="service-desc">Troubleshooting hardware and software issues, slow performance, crashes, and more.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🖨️</span>
+        <div class="service-name">Printer Installation & Repair</div>
+        <div class="service-desc">Setup, configuration, driver installation, and fixing printer connectivity issues.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">📶</span>
+        <div class="service-name">WiFi & Network Setup</div>
+        <div class="service-desc">Router configuration, VLAN setup, trunk networks, and stable connectivity solutions.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">📧</span>
+        <div class="service-name">Email Setup & Support</div>
+        <div class="service-desc">Exchange & Microsoft 365 configuration, migration, and ongoing email support.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🖧</span>
+        <div class="service-name">Server Support</div>
+        <div class="service-desc">DNS, DHCP, file server setup and management for your business infrastructure.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">☁️</span>
+        <div class="service-name">Cloud Basics</div>
+        <div class="service-desc">VM setup, IP configuration, and cloud fundamentals to get your business online.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🌍</span>
+        <div class="service-name">Remote IT Support</div>
+        <div class="service-desc">Get expert help from anywhere in Denmark — fast, convenient, and no travel needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div>
+        <div class="reveal">
+          <div class="section-label">Why choose me</div>
+          <h2 class="section-title">IT Support You Can Actually Trust</h2>
+        </div>
+        <div class="why-list reveal-stagger">
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <strong>Fast Response</strong>
+              <span>I understand downtime costs you. I respond quickly and get your systems back up.</span>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <strong>Affordable Pricing</strong>
+              <span>Professional IT help without the enterprise price tag. Fair rates for individuals and small businesses.</span>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <strong>Friendly & Clear Communication</strong>
+              <span>No jargon, no confusion. I explain everything in plain language you can understand.</span>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <strong>Remote & On-Site Available</strong>
+              <span>Whether you need help from your home or remotely, I've got you covered across Denmark.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual reveal">
+        <div class="big-stat">🇩🇰</div>
+        <div class="big-stat-label">Serving all of Denmark</div>
+        <hr class="divider">
+        <div class="card-stat" style="justify-content:center;">
+          <div class="stat-icon">💻</div>
+          <div>
+            <div class="stat-label">Specializations</div>
+            <div class="stat-val">Homes & Small Business</div>
+          </div>
+        </div>
+        <div class="card-stat" style="justify-content:center;">
+          <div class="stat-icon">🔧</div>
+          <div>
+            <div class="stat-label">Support Type</div>
+            <div class="stat-val">Hardware & Software</div>
+          </div>
+        </div>
+        <div class="card-stat" style="justify-content:center; border:none;">
+          <div class="stat-icon">🌐</div>
+          <div>
+            <div class="stat-label">Availability</div>
+            <div class="stat-val">Remote & On-Site</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:3rem;">
+      <div class="section-label">Get in touch</div>
+      <h2 class="section-title">Let's Fix It Today</h2>
+      <p class="section-sub">Reach out directly or send a message. I'll get back to you as quickly as possible.</p>
+    </div>
+
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="contact-methods">
+          <a href="tel:+4571422053" class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Call me directly</div>
+              <div class="contact-val">+45 71 42 20 53</div>
+            </div>
+          </a>
+          <a href="mailto:anilkumarcmc@gmail.com" class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email me</div>
+              <div class="contact-val">anilkumarcmc@gmail.com</div>
+            </div>
+          </a>
+          <div class="contact-item" style="cursor:default;">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-val">Denmark (Remote & On-Site)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Hans Christian">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>What do you need help with?</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Computer & Laptop Repair</option>
+              <option>Printer Installation & Repair</option>
+              <option>WiFi & Network Setup</option>
+              <option>Email Setup & Support</option>
+              <option>Server Support</option>
+              <option>Cloud Basics</option>
+              <option>Remote IT Support</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Describe your issue briefly..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="alert('Thank you! I\'ll be in touch shortly. You can also call +45 71 42 20 53 for immediate help.')">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Nordic IT Support</strong> · Denmark · <a href="tel:+4571422053">+45 71 42 20 53</a> · <a href="mailto:anilkumarcmc@gmail.com">anilkumarcmc@gmail.com</a></p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
